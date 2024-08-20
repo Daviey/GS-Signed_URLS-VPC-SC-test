@@ -1,0 +1,9 @@
+project_id       = ""
+region           = ""
+organization_id  = ""
+credentials_file = "./terraform-sa-key.json"
+bucket_location  = "US"
+vpc_network_name = "my-vpc-network"
+vpc_subnet_name  = "my-vpc-subnet"
+vpc_subnet_cidr  = "10.0.0.0/24"
+enable_vpc_sc    = false # Set to true when you're ready to enable VPC-SC

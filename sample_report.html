@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <h1>Testing of Google Cloud Storage with Signed URLS with VPC-SC</h1>
+    <pre><span style="background-color:#171421"><font color="#A2734C"> dave@biro </font></span><span style="background-color:#12488B"><font color="#171421">$ …/test_signed_url </font></span><font color="#12488B"></font> ./test.sh </span>
+<font color="#26A269">Deploying infrastructure without VPC-SC...</font>
+<b>data.google_project.project: Reading...</b>
+<b>data.google_project.project: Read complete after 1s [id=projects/ballsack-423909]</b>
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  <font color="#26A269">+</font> create
+ <font color="#2AA1B3">&lt;=</font> read (data resources)
+
+Terraform will perform the following actions:
+
+<b>  # data.google_storage_object_signed_url.additional_pre_vpc_sc_signed_url</b> will be read during apply
+  # (config refers to values not yet known)
+ <font color="#2AA1B3">&lt;=</font> data &quot;google_storage_object_signed_url&quot; &quot;additional_pre_vpc_sc_signed_url&quot; {
+      <font color="#26A269">+</font> bucket            = (known after apply)
+      <font color="#26A269">+</font> credentials       = (sensitive value)
+      <font color="#26A269">+</font> extension_headers = {
+          <font color="#26A269">+</font> &quot;x-goog-custom-header&quot; = &quot;custom_value&quot;
+        }
+      <font color="#26A269">+</font> id                = (known after apply)
+      <font color="#26A269">+</font> path              = &quot;sample.txt&quot;
+      <font color="#26A269">+</font> signed_url        = (known after apply)
+    }
+
+<b>  # data.google_storage_object_signed_url.post_vpc_sc_signed_url</b> will be read during apply
+  # (config refers to values not yet known)
+ <font color="#2AA1B3">&lt;=</font> data &quot;google_storage_object_signed_url&quot; &quot;post_vpc_sc_signed_url&quot; {
+      <font color="#26A269">+</font> bucket            = (known after apply)
+      <font color="#26A269">+</font> credentials       = (sensitive value)
+      <font color="#26A269">+</font> extension_headers = {
+          <font color="#26A269">+</font> &quot;x-goog-custom-header&quot; = &quot;custom_value&quot;
+        }
+      <font color="#26A269">+</font> id                = (known after apply)
+      <font color="#26A269">+</font> path              = &quot;sample.txt&quot;
+      <font color="#26A269">+</font> signed_url        = (known after apply)
+    }
+
+<b>  # data.google_storage_object_signed_url.pre_vpc_sc_signed_url</b> will be read during apply
+  # (config refers to values not yet known)
+ <font color="#2AA1B3">&lt;=</font> data &quot;google_storage_object_signed_url&quot; &quot;pre_vpc_sc_signed_url&quot; {
+      <font color="#26A269">+</font> bucket      = (known after apply)
+      <font color="#26A269">+</font> credentials = (sensitive value)
+      <font color="#26A269">+</font> id          = (known after apply)
+      <font color="#26A269">+</font> path        = &quot;sample.txt&quot;
+      <font color="#26A269">+</font> signed_url  = (known after apply)
+    }
+
+<b>  # google_compute_network.vpc_network</b> will be created
+  <font color="#26A269">+</font> resource &quot;google_compute_network&quot; &quot;vpc_network&quot; {
+      <font color="#26A269">+</font> auto_create_subnetworks                   = false
+      <font color="#26A269">+</font> delete_default_routes_on_create           = false
+      <font color="#26A269">+</font> gateway_ipv4                              = (known after apply)
+      <font color="#26A269">+</font> id                                        = (known after apply)
+      <font color="#26A269">+</font> internal_ipv6_range                       = (known after apply)
+      <font color="#26A269">+</font> mtu                                       = (known after apply)
+      <font color="#26A269">+</font> name                                      = &quot;my-vpc-network&quot;
+      <font color="#26A269">+</font> network_firewall_policy_enforcement_order = &quot;AFTER_CLASSIC_FIREWALL&quot;
+      <font color="#26A269">+</font> numeric_id                                = (known after apply)
+      <font color="#26A269">+</font> project                                   = &quot;ballsack-423909&quot;
+      <font color="#26A269">+</font> routing_mode                              = (known after apply)
+      <font color="#26A269">+</font> self_link                                 = (known after apply)
+    }
+
+<b>  # google_compute_subnetwork.vpc_subnet</b> will be created
+  <font color="#26A269">+</font> resource &quot;google_compute_subnetwork&quot; &quot;vpc_subnet&quot; {
+      <font color="#26A269">+</font> creation_timestamp         = (known after apply)
+      <font color="#26A269">+</font> external_ipv6_prefix       = (known after apply)
+      <font color="#26A269">+</font> fingerprint                = (known after apply)
+      <font color="#26A269">+</font> gateway_address            = (known after apply)
+      <font color="#26A269">+</font> id                         = (known after apply)
+      <font color="#26A269">+</font> internal_ipv6_prefix       = (known after apply)
+      <font color="#26A269">+</font> ip_cidr_range              = &quot;10.0.0.0/24&quot;
+      <font color="#26A269">+</font> ipv6_cidr_range            = (known after apply)
+      <font color="#26A269">+</font> name                       = &quot;my-vpc-subnet&quot;
+      <font color="#26A269">+</font> network                    = (known after apply)
+      <font color="#26A269">+</font> private_ip_google_access   = (known after apply)
+      <font color="#26A269">+</font> private_ipv6_google_access = (known after apply)
+      <font color="#26A269">+</font> project                    = &quot;ballsack-423909&quot;
+      <font color="#26A269">+</font> purpose                    = (known after apply)
+      <font color="#26A269">+</font> region                     = &quot;us-central1&quot;
+      <font color="#26A269">+</font> secondary_ip_range         = (known after apply)
+      <font color="#26A269">+</font> self_link                  = (known after apply)
+      <font color="#26A269">+</font> stack_type                 = (known after apply)
+    }
+
+<b>  # google_service_account.signed_url_sa</b> will be created
+  <font color="#26A269">+</font> resource &quot;google_service_account&quot; &quot;signed_url_sa&quot; {
+      <font color="#26A269">+</font> account_id   = &quot;signed-url-sa&quot;
+      <font color="#26A269">+</font> disabled     = false
+      <font color="#26A269">+</font> display_name = &quot;Signed URL Service Account&quot;
+      <font color="#26A269">+</font> email        = (known after apply)
+      <font color="#26A269">+</font> id           = (known after apply)
+      <font color="#26A269">+</font> member       = (known after apply)
+      <font color="#26A269">+</font> name         = (known after apply)
+      <font color="#26A269">+</font> project      = &quot;ballsack-423909&quot;
+      <font color="#26A269">+</font> unique_id    = (known after apply)
+    }
+
+<b>  # google_service_account_key.signed_url_sa_key</b> will be created
+  <font color="#26A269">+</font> resource &quot;google_service_account_key&quot; &quot;signed_url_sa_key&quot; {
+      <font color="#26A269">+</font> id                 = (known after apply)
+      <font color="#26A269">+</font> key_algorithm      = &quot;KEY_ALG_RSA_2048&quot;
+      <font color="#26A269">+</font> name               = (known after apply)
+      <font color="#26A269">+</font> private_key        = (sensitive value)
+      <font color="#26A269">+</font> private_key_type   = &quot;TYPE_GOOGLE_CREDENTIALS_FILE&quot;
+      <font color="#26A269">+</font> public_key         = (known after apply)
+      <font color="#26A269">+</font> public_key_type    = &quot;TYPE_X509_PEM_FILE&quot;
+      <font color="#26A269">+</font> service_account_id = (known after apply)
+      <font color="#26A269">+</font> valid_after        = (known after apply)
+      <font color="#26A269">+</font> valid_before       = (known after apply)
+    }
+
+<b>  # google_storage_bucket.sample_bucket</b> will be created
+  <font color="#26A269">+</font> resource &quot;google_storage_bucket&quot; &quot;sample_bucket&quot; {
+      <font color="#26A269">+</font> effective_labels            = (known after apply)
+      <font color="#26A269">+</font> force_destroy               = false
+      <font color="#26A269">+</font> id                          = (known after apply)
+      <font color="#26A269">+</font> location                    = &quot;US&quot;
+      <font color="#26A269">+</font> name                        = (known after apply)
+      <font color="#26A269">+</font> project                     = (known after apply)
+      <font color="#26A269">+</font> project_number              = (known after apply)
+      <font color="#26A269">+</font> public_access_prevention    = (known after apply)
+      <font color="#26A269">+</font> rpo                         = (known after apply)
+      <font color="#26A269">+</font> self_link                   = (known after apply)
+      <font color="#26A269">+</font> storage_class               = &quot;STANDARD&quot;
+      <font color="#26A269">+</font> terraform_labels            = (known after apply)
+      <font color="#26A269">+</font> uniform_bucket_level_access = true
+      <font color="#26A269">+</font> url                         = (known after apply)
+
+      <font color="#26A269">+</font> soft_delete_policy (known after apply)
+
+      <font color="#26A269">+</font> versioning (known after apply)
+
+      <font color="#26A269">+</font> website (known after apply)
+    }
+
+<b>  # google_storage_bucket_iam_member.signed_url_creator</b> will be created
+  <font color="#26A269">+</font> resource &quot;google_storage_bucket_iam_member&quot; &quot;signed_url_creator&quot; {
+      <font color="#26A269">+</font> bucket = (known after apply)
+      <font color="#26A269">+</font> etag   = (known after apply)
+      <font color="#26A269">+</font> id     = (known after apply)
+      <font color="#26A269">+</font> member = (known after apply)
+      <font color="#26A269">+</font> role   = &quot;roles/storage.objectViewer&quot;
+    }
+
+<b>  # google_storage_bucket_object.sample_file</b> will be created
+  <font color="#26A269">+</font> resource &quot;google_storage_bucket_object&quot; &quot;sample_file&quot; {
+      <font color="#26A269">+</font> bucket         = (known after apply)
+      <font color="#26A269">+</font> content        = (sensitive value)
+      <font color="#26A269">+</font> content_type   = &quot;text/plain&quot;
+      <font color="#26A269">+</font> crc32c         = (known after apply)
+      <font color="#26A269">+</font> detect_md5hash = &quot;different hash&quot;
+      <font color="#26A269">+</font> generation     = (known after apply)
+      <font color="#26A269">+</font> id             = (known after apply)
+      <font color="#26A269">+</font> kms_key_name   = (known after apply)
+      <font color="#26A269">+</font> md5hash        = (known after apply)
+      <font color="#26A269">+</font> media_link     = (known after apply)
+      <font color="#26A269">+</font> name           = &quot;sample.txt&quot;
+      <font color="#26A269">+</font> output_name    = (known after apply)
+      <font color="#26A269">+</font> self_link      = (known after apply)
+      <font color="#26A269">+</font> storage_class  = (known after apply)
+    }
+
+<b>  # random_id.bucket_suffix</b> will be created
+  <font color="#26A269">+</font> resource &quot;random_id&quot; &quot;bucket_suffix&quot; {
+      <font color="#26A269">+</font> b64_std     = (known after apply)
+      <font color="#26A269">+</font> b64_url     = (known after apply)
+      <font color="#26A269">+</font> byte_length = 4
+      <font color="#26A269">+</font> dec         = (known after apply)
+      <font color="#26A269">+</font> hex         = (known after apply)
+      <font color="#26A269">+</font> id          = (known after apply)
+    }
+
+<b>Plan:</b> 8 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  <font color="#26A269">+</font> additional_pre_vpc_sc_signed_url              = (sensitive value)
+  <font color="#26A269">+</font> bucket_name                                   = (known after apply)
+  <font color="#26A269">+</font> post_vpc_sc_signed_url                        = (sensitive value)
+  <font color="#26A269">+</font> pre_vpc_sc_signed_url                         = (sensitive value)
+  <font color="#26A269">+</font> test_additional_pre_vpc_sc_signed_url_command = (known after apply)
+  <font color="#26A269">+</font> test_direct_access_command                    = (known after apply)
+  <font color="#26A269">+</font> test_post_vpc_sc_signed_url_command           = &quot;VPC-SC not enabled&quot;
+  <font color="#26A269">+</font> test_pre_vpc_sc_signed_url_command            = (known after apply)
+  <font color="#26A269">+</font> vpc_sc_status                                 = &quot;Disabled&quot;
+<b>random_id.bucket_suffix: Creating...</b>
+<b>random_id.bucket_suffix: Creation complete after 0s [id=KoYX7w]</b>
+<b>google_service_account.signed_url_sa: Creating...</b>
+<b>google_compute_network.vpc_network: Creating...</b>
+<b>google_storage_bucket.sample_bucket: Creating...</b>
+<b>google_storage_bucket.sample_bucket: Creation complete after 2s [id=sample-bucket-2a8617ef]</b>
+<b>google_storage_bucket_object.sample_file: Creating...</b>
+<b>google_storage_bucket_object.sample_file: Creation complete after 1s [id=sample-bucket-2a8617ef-sample.txt]</b>
+<b>google_compute_network.vpc_network: Still creating... [10s elapsed]</b>
+<b>google_service_account.signed_url_sa: Still creating... [10s elapsed]</b>
+<b>google_service_account.signed_url_sa: Creation complete after 12s [id=projects/ballsack-423909/serviceAccounts/signed-url-sa@ballsack-423909.iam.gserviceaccount.com]</b>
+<b>google_storage_bucket_iam_member.signed_url_creator: Creating...</b>
+<b>google_service_account_key.signed_url_sa_key: Creating...</b>
+<b>google_storage_bucket_iam_member.signed_url_creator: Creation complete after 5s [id=b/sample-bucket-2a8617ef/roles/storage.objectViewer/serviceAccount:signed-url-sa@ballsack-423909.iam.gserviceaccount.com]</b>
+<b>google_compute_network.vpc_network: Still creating... [20s elapsed]</b>
+<b>google_service_account_key.signed_url_sa_key: Still creating... [10s elapsed]</b>
+<b>google_compute_network.vpc_network: Creation complete after 22s [id=projects/ballsack-423909/global/networks/my-vpc-network]</b>
+<b>google_compute_subnetwork.vpc_subnet: Creating...</b>
+<b>google_service_account_key.signed_url_sa_key: Creation complete after 13s [id=projects/ballsack-423909/serviceAccounts/signed-url-sa@ballsack-423909.iam.gserviceaccount.com/keys/371772759c5fa24761f6acc9ef44e65decfa2be6]</b>
+<b>data.google_storage_object_signed_url.pre_vpc_sc_signed_url: Reading...</b>
+<b>data.google_storage_object_signed_url.post_vpc_sc_signed_url: Reading...</b>
+<b>data.google_storage_object_signed_url.additional_pre_vpc_sc_signed_url: Reading...</b>
+<b>data.google_storage_object_signed_url.post_vpc_sc_signed_url: Read complete after 0s [id=tkxNGbRW0tZer9eJYl6EFF34As55dBPYY%2BVLJ23MkOlYXXutWERZmfGTBaMh9Z9Bh5J5tzpmGWq1pmRfc6Gyy8MHMMv3aWsyJRhATGifK9JitdibyIQuUElggxefuO3z8yPKDFLoz7HgeE4COiecz1TdClqYkLr2UJI9rwefLh0HbMUi8P0Epm6vd%2FG0hcpaAzw03tMwFZJdw4hSj3w2vpSTpwnro%2FUSP3nzi%2Fk%2F9O8rRw9kpbeyY6Yuh9plvpxb5DXn0UV8tsGNTh%2BhCBPQ4SPKFTpu5uLyKoB5yy88vQOWqfKIIBXso07ys2BcNrZ7LrlZ%2FlDM1rUkee9sxIKPOg%3D%3D]</b>
+<b>data.google_storage_object_signed_url.pre_vpc_sc_signed_url: Read complete after 0s [id=cU57iqAECN1QRAXE38rdD109HH7EJQyyNlsn%2FOthbxZ9zbcKowF8RCZKkBKkxzX7yyPA60%2BPV%2Ffjr9xG03XF9bqnqz5kSEmqwtsFmsZSJVuRsrN87GlaGs0xM1kcm3Ex4SNyPwY48LAtLJR0ibS%2FDSXC4PH2M%2BHKgXk5o7NBakRWxBOFbaAO8nCRjcki%2BNgm%2FUeZc%2B803ytf9HITTX%2BFeB%2FjI5wOpboHVezJnGCK8JbZYFsqIlIVvOC%2BjZ9vS%2F%2BwA%2Bl%2FaiG12YZk0z9BAQZNZhTKM%2FJhqVSKB7U8JYJ3wi6G20FLXcBPZzm56UOKoBKgcJnYBjQlK5NGIyFeQvAK9w%3D%3D]</b>
+<b>data.google_storage_object_signed_url.additional_pre_vpc_sc_signed_url: Read complete after 0s [id=tkxNGbRW0tZer9eJYl6EFF34As55dBPYY%2BVLJ23MkOlYXXutWERZmfGTBaMh9Z9Bh5J5tzpmGWq1pmRfc6Gyy8MHMMv3aWsyJRhATGifK9JitdibyIQuUElggxefuO3z8yPKDFLoz7HgeE4COiecz1TdClqYkLr2UJI9rwefLh0HbMUi8P0Epm6vd%2FG0hcpaAzw03tMwFZJdw4hSj3w2vpSTpwnro%2FUSP3nzi%2Fk%2F9O8rRw9kpbeyY6Yuh9plvpxb5DXn0UV8tsGNTh%2BhCBPQ4SPKFTpu5uLyKoB5yy88vQOWqfKIIBXso07ys2BcNrZ7LrlZ%2FlDM1rUkee9sxIKPOg%3D%3D]</b>
+<b>google_compute_subnetwork.vpc_subnet: Still creating... [10s elapsed]</b>
+<b>google_compute_subnetwork.vpc_subnet: Creation complete after 14s [id=projects/ballsack-423909/regions/us-central1/subnetworks/my-vpc-subnet]</b>
+
+<font color="#26A269"><b>Apply complete! Resources: 8 added, 0 changed, 0 destroyed.</b></font>
+
+<font color="#26A269"><b>Outputs:</b></font>
+
+additional_pre_vpc_sc_signed_url = &lt;sensitive&gt;
+bucket_name = &quot;sample-bucket-2a8617ef&quot;
+post_vpc_sc_signed_url = &lt;sensitive&gt;
+pre_vpc_sc_signed_url = &lt;sensitive&gt;
+test_additional_pre_vpc_sc_signed_url_command = &quot;curl -s -H &apos;x-goog-custom-header: custom_value&apos; &apos;https://storage.googleapis.com/sample-bucket-2a8617ef/sample.txt?GoogleAccessId=signed-url-sa@ballsack-423909.iam.gserviceaccount.com&amp;Expires=1724166151&amp;Signature=tkxNGbRW0tZer9eJYl6EFF34As55dBPYY%2BVLJ23MkOlYXXutWERZmfGTBaMh9Z9Bh5J5tzpmGWq1pmRfc6Gyy8MHMMv3aWsyJRhATGifK9JitdibyIQuUElggxefuO3z8yPKDFLoz7HgeE4COiecz1TdClqYkLr2UJI9rwefLh0HbMUi8P0Epm6vd%2FG0hcpaAzw03tMwFZJdw4hSj3w2vpSTpwnro%2FUSP3nzi%2Fk%2F9O8rRw9kpbeyY6Yuh9plvpxb5DXn0UV8tsGNTh%2BhCBPQ4SPKFTpu5uLyKoB5yy88vQOWqfKIIBXso07ys2BcNrZ7LrlZ%2FlDM1rUkee9sxIKPOg%3D%3D&apos;&quot;
+test_direct_access_command = &quot;gsutil cat gs://sample-bucket-2a8617ef/sample.txt&quot;
+test_post_vpc_sc_signed_url_command = &quot;VPC-SC not enabled&quot;
+test_pre_vpc_sc_signed_url_command = &quot;curl -s &apos;https://storage.googleapis.com/sample-bucket-2a8617ef/sample.txt?GoogleAccessId=signed-url-sa@ballsack-423909.iam.gserviceaccount.com&amp;Expires=1724166151&amp;Signature=cU57iqAECN1QRAXE38rdD109HH7EJQyyNlsn%2FOthbxZ9zbcKowF8RCZKkBKkxzX7yyPA60%2BPV%2Ffjr9xG03XF9bqnqz5kSEmqwtsFmsZSJVuRsrN87GlaGs0xM1kcm3Ex4SNyPwY48LAtLJR0ibS%2FDSXC4PH2M%2BHKgXk5o7NBakRWxBOFbaAO8nCRjcki%2BNgm%2FUeZc%2B803ytf9HITTX%2BFeB%2FjI5wOpboHVezJnGCK8JbZYFsqIlIVvOC%2BjZ9vS%2F%2BwA%2Bl%2FaiG12YZk0z9BAQZNZhTKM%2FJhqVSKB7U8JYJ3wi6G20FLXcBPZzm56UOKoBKgcJnYBjQlK5NGIyFeQvAK9w%3D%3D&apos;&quot;
+vpc_sc_status = &quot;Disabled&quot;
+<font color="#26A269">Testing access before enabling VPC-SC:</font>
+<font color="#A2734C">Testing pre-VPC-SC signed URL access:</font>
++ curl -s &quot;https://storage.googleapis.com/sample-bucket-2a8617ef/sample.txt?GoogleAccessId=signed-url-sa@ballsack-423909.iam.gserviceaccount.com&amp;Expires=1724166151&amp;Signature=cU57iqAECN1QRAXE38rdD109HH7EJQyyNlsn%2FOthbxZ9zbcKowF8RCZKkBKkxzX7yyPA60%2BPV%2Ffjr9xG03XF9bqnqz5kSEmqwtsFmsZSJVuRsrN87GlaGs0xM1kcm3Ex4SNyPwY48LAtLJR0ibS%2FDSXC4PH2M%2BHKgXk5o7NBakRWxBOFbaAO8nCRjcki%2BNgm%2FUeZc%2B803ytf9HITTX%2BFeB%2FjI5wOpboHVezJnGCK8JbZYFsqIlIVvOC%2BjZ9vS%2F%2BwA%2Bl%2FaiG12YZk0z9BAQZNZhTKM%2FJhqVSKB7U8JYJ3wi6G20FLXcBPZzm56UOKoBKgcJnYBjQlK5NGIyFeQvAK9w%3D%3D&quot;
+This is a sample file for testing VPC Service Controls.
+<font color="#26A269">Access is as expected</font>
+Press any key to continue...
+<font color="#A2734C">Testing additional pre-VPC-SC signed URL access (with custom header):</font>
++ curl -s -H &apos;x-goog-custom-header: custom_value&apos; &quot;https://storage.googleapis.com/sample-bucket-2a8617ef/sample.txt?GoogleAccessId=signed-url-sa@ballsack-423909.iam.gserviceaccount.com&amp;Expires=1724166151&amp;Signature=tkxNGbRW0tZer9eJYl6EFF34As55dBPYY%2BVLJ23MkOlYXXutWERZmfGTBaMh9Z9Bh5J5tzpmGWq1pmRfc6Gyy8MHMMv3aWsyJRhATGifK9JitdibyIQuUElggxefuO3z8yPKDFLoz7HgeE4COiecz1TdClqYkLr2UJI9rwefLh0HbMUi8P0Epm6vd%2FG0hcpaAzw03tMwFZJdw4hSj3w2vpSTpwnro%2FUSP3nzi%2Fk%2F9O8rRw9kpbeyY6Yuh9plvpxb5DXn0UV8tsGNTh%2BhCBPQ4SPKFTpu5uLyKoB5yy88vQOWqfKIIBXso07ys2BcNrZ7LrlZ%2FlDM1rUkee9sxIKPOg%3D%3D&quot;
+This is a sample file for testing VPC Service Controls.
+<font color="#26A269">Access is as expected</font>
+Press any key to continue...
+<font color="#A2734C">Testing additional pre-VPC-SC signed URL access (without custom header):</font>
++ curl -s &quot;https://storage.googleapis.com/sample-bucket-2a8617ef/sample.txt?GoogleAccessId=signed-url-sa@ballsack-423909.iam.gserviceaccount.com&amp;Expires=1724166151&amp;Signature=tkxNGbRW0tZer9eJYl6EFF34As55dBPYY%2BVLJ23MkOlYXXutWERZmfGTBaMh9Z9Bh5J5tzpmGWq1pmRfc6Gyy8MHMMv3aWsyJRhATGifK9JitdibyIQuUElggxefuO3z8yPKDFLoz7HgeE4COiecz1TdClqYkLr2UJI9rwefLh0HbMUi8P0Epm6vd%2FG0hcpaAzw03tMwFZJdw4hSj3w2vpSTpwnro%2FUSP3nzi%2Fk%2F9O8rRw9kpbeyY6Yuh9plvpxb5DXn0UV8tsGNTh%2BhCBPQ4SPKFTpu5uLyKoB5yy88vQOWqfKIIBXso07ys2BcNrZ7LrlZ%2FlDM1rUkee9sxIKPOg%3D%3D&quot;
+&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;&lt;Error&gt;&lt;Code&gt;SignatureDoesNotMatch&lt;/Code&gt;&lt;Message&gt;Access denied.&lt;/Message&gt;&lt;Details&gt;The request signature we calculated does not match the signature you provided. Check your Google secret key and signing method.&lt;/Details&gt;&lt;StringToSign&gt;GET
+
+
+1724166151
+/sample-bucket-2a8617ef/sample.txt&lt;/StringToSign&gt;&lt;/Error&gt;
+<font color="#26A269">Access is as expected</font>
+Press any key to continue...
+<font color="#A2734C">Testing direct gsutil access:</font>
++ gsutil cat gs://sample-bucket-2a8617ef/sample.txt
+This is a sample file for testing VPC Service Controls.
+<font color="#26A269">Access is as expected</font>
+Press any key to continue...
+<font color="#A2734C">Testing direct gcloud access:</font>
++ gcloud storage ls gs://sample-bucket-2a8617ef
+gs://sample-bucket-2a8617ef/sample.txt
+<font color="#26A269">Access is as expected</font>
+Press any key to continue...
+<font color="#A2734C">Testing content-type verification:</font>
++ curl -s -I &quot;https://storage.googleapis.com/sample-bucket-2a8617ef/sample.txt?GoogleAccessId=signed-url-sa@ballsack-423909.iam.gserviceaccount.com&amp;Expires=1724166151&amp;Signature=cU57iqAECN1QRAXE38rdD109HH7EJQyyNlsn%2FOthbxZ9zbcKowF8RCZKkBKkxzX7yyPA60%2BPV%2Ffjr9xG03XF9bqnqz5kSEmqwtsFmsZSJVuRsrN87GlaGs0xM1kcm3Ex4SNyPwY48LAtLJR0ibS%2FDSXC4PH2M%2BHKgXk5o7NBakRWxBOFbaAO8nCRjcki%2BNgm%2FUeZc%2B803ytf9HITTX%2BFeB%2FjI5wOpboHVezJnGCK8JbZYFsqIlIVvOC%2BjZ9vS%2F%2BwA%2Bl%2FaiG12YZk0z9BAQZNZhTKM%2FJhqVSKB7U8JYJ3wi6G20FLXcBPZzm56UOKoBKgcJnYBjQlK5NGIyFeQvAK9w%3D%3D&quot; | grep -i &apos;Content-Type: text/plain&apos;
+content-type: text/plain
+<font color="#26A269">Access is as expected</font>
+Press any key to continue...
+<font color="#26A269">Enabling VPC-SC...</font>
+<b>random_id.bucket_suffix: Refreshing state... [id=KoYX7w]</b>
+<b>data.google_project.project: Reading...</b>
+<b>google_compute_network.vpc_network: Refreshing state... [id=projects/ballsack-423909/global/networks/my-vpc-network]</b>
+<b>google_service_account.signed_url_sa: Refreshing state... [id=projects/ballsack-423909/serviceAccounts/signed-url-sa@ballsack-423909.iam.gserviceaccount.com]</b>
+<b>google_storage_bucket.sample_bucket: Refreshing state... [id=sample-bucket-2a8617ef]</b>
+<b>google_storage_bucket_object.sample_file: Refreshing state... [id=sample-bucket-2a8617ef-sample.txt]</b>
+<b>google_compute_subnetwork.vpc_subnet: Refreshing state... [id=projects/ballsack-423909/regions/us-central1/subnetworks/my-vpc-subnet]</b>
+<b>google_storage_bucket_iam_member.signed_url_creator: Refreshing state... [id=b/sample-bucket-2a8617ef/roles/storage.objectViewer/serviceAccount:signed-url-sa@ballsack-423909.iam.gserviceaccount.com]</b>
+<b>google_service_account_key.signed_url_sa_key: Refreshing state... [id=projects/ballsack-423909/serviceAccounts/signed-url-sa@ballsack-423909.iam.gserviceaccount.com/keys/371772759c5fa24761f6acc9ef44e65decfa2be6]</b>
+<b>data.google_storage_object_signed_url.pre_vpc_sc_signed_url: Reading...</b>
+<b>data.google_storage_object_signed_url.additional_pre_vpc_sc_signed_url: Reading...</b>
+<b>data.google_storage_object_signed_url.pre_vpc_sc_signed_url: Read complete after 0s [id=czzkVyvEDDf19ozSJ2OczbdTfNUOl%2BNGXon%2F%2FcJ56NZDmq52o5%2BPArGYx5FJJMS%2FMjQ6fqIj1e7xV8A5GucSRiFmM2pq6OEfM5nyo82WGxC%2Bm%2BuXaVsSqrsBgUof%2FqOtrvjhe%2BTPyJQGOQ59QGNGvBck2i5YAzaKjv1xBvg4CpCsv4zC4yF%2BZ3MN0HFVMHLTUMvsNV4wSPef895PVcq8UN8%2BkpjR0NRDzylrMfjrHnO%2FYnHPl8cMos2HSTmcgwDIgoktYn%2Frbmbp8Ukk7bEBhjObkbad85kAC9OrXPvMCmj45NfYOX9YZI7ZHyFy64yq%2B%2BYHQukZWZ8ep5kcq8I69A%3D%3D]</b>
+<b>data.google_storage_object_signed_url.additional_pre_vpc_sc_signed_url: Read complete after 0s [id=GhC56GUAmz5BVZkgkKGCJq2mGBew2OfnnOo6K3NrP8N%2BtWOgkgR%2BxlXrXxnQXbmQIOfKUXxsCbXfd%2FLbceQzsFnbRxP81KXnuMO5Py%2Btyt9vJq3B5GQp3Pjd7%2FYFS7NzVbOADDsAjYEKBwkEqXTUGTMCBZ%2BbjNG3%2FAANP86qNd2%2BonRnMdMINDw6y7a4mEBQ4gVVhlQv0ZdQxusfvlvkJB0C0ecjMjdzOpmMl793rmmN1KSI7o5NpUNvJpy8Ormwnrge6iXWuseu%2FR6Y8yOgQVc1h%2FQXocQaIsB1u2ehXmpAfw9L7ybyepQNA1DlphTBa%2F3fh4XKSnnM775alRN6ag%3D%3D]</b>
+<b>data.google_project.project: Read complete after 1s [id=projects/ballsack-423909]</b>
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  <font color="#26A269">+</font> create
+ <font color="#2AA1B3">&lt;=</font> read (data resources)
+
+Terraform will perform the following actions:
+
+<b>  # data.google_storage_object_signed_url.post_vpc_sc_signed_url</b> will be read during apply
+  # (depends on a resource or a module with changes pending)
+ <font color="#2AA1B3">&lt;=</font> data &quot;google_storage_object_signed_url&quot; &quot;post_vpc_sc_signed_url&quot; {
+      <font color="#26A269">+</font> bucket            = &quot;sample-bucket-2a8617ef&quot;
+      <font color="#26A269">+</font> credentials       = (sensitive value)
+      <font color="#26A269">+</font> extension_headers = {
+          <font color="#26A269">+</font> &quot;x-goog-custom-header&quot; = &quot;custom_value&quot;
+        }
+      <font color="#26A269">+</font> id                = (known after apply)
+      <font color="#26A269">+</font> path              = &quot;sample.txt&quot;
+      <font color="#26A269">+</font> signed_url        = (known after apply)
+    }
+
+<b>  # google_access_context_manager_access_policy.access_policy[0]</b> will be created
+  <font color="#26A269">+</font> resource &quot;google_access_context_manager_access_policy&quot; &quot;access_policy&quot; {
+      <font color="#26A269">+</font> create_time = (known after apply)
+      <font color="#26A269">+</font> id          = (known after apply)
+      <font color="#26A269">+</font> name        = (known after apply)
+      <font color="#26A269">+</font> parent      = &quot;organizations/1005469036322&quot;
+      <font color="#26A269">+</font> title       = &quot;VPC SC Policy&quot;
+      <font color="#26A269">+</font> update_time = (known after apply)
+    }
+
+<b>  # google_access_context_manager_service_perimeter.service_perimeter[0]</b> will be created
+  <font color="#26A269">+</font> resource &quot;google_access_context_manager_service_perimeter&quot; &quot;service_perimeter&quot; {
+      <font color="#26A269">+</font> create_time    = (known after apply)
+      <font color="#26A269">+</font> id             = (known after apply)
+      <font color="#26A269">+</font> name           = (known after apply)
+      <font color="#26A269">+</font> parent         = (known after apply)
+      <font color="#26A269">+</font> perimeter_type = &quot;PERIMETER_TYPE_REGULAR&quot;
+      <font color="#26A269">+</font> title          = &quot;restrict_storage&quot;
+      <font color="#26A269">+</font> update_time    = (known after apply)
+
+      <font color="#26A269">+</font> status {
+          <font color="#26A269">+</font> resources           = [
+              <font color="#26A269">+</font> &quot;projects/19648142841&quot;,
+            ]
+          <font color="#26A269">+</font> restricted_services = [
+              <font color="#26A269">+</font> &quot;storage.googleapis.com&quot;,
+            ]
+
+          <font color="#26A269">+</font> ingress_policies {
+              <font color="#26A269">+</font> ingress_from {
+                  <font color="#26A269">+</font> identities = [
+                      <font color="#26A269">+</font> &quot;serviceAccount:signed-url-sa@ballsack-423909.iam.gserviceaccount.com&quot;,
+                    ]
+
+                  <font color="#26A269">+</font> sources {
+                      <font color="#26A269">+</font> resource = &quot;projects/19648142841&quot;
+                    }
+                }
+              <font color="#26A269">+</font> ingress_to {
+                  <font color="#26A269">+</font> resources = [
+                      <font color="#26A269">+</font> &quot;projects/19648142841&quot;,
+                    ]
+
+                  <font color="#26A269">+</font> operations {
+                      <font color="#26A269">+</font> service_name = &quot;storage.googleapis.com&quot;
+
+                      <font color="#26A269">+</font> method_selectors {
+                          <font color="#26A269">+</font> method = &quot;google.storage.objects.get&quot;
+                        }
+                    }
+                }
+            }
+
+          <font color="#26A269">+</font> vpc_accessible_services {
+              <font color="#26A269">+</font> allowed_services   = [
+                  <font color="#26A269">+</font> &quot;storage.googleapis.com&quot;,
+                ]
+              <font color="#26A269">+</font> enable_restriction = true
+            }
+        }
+    }
+
+<b>Plan:</b> 2 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  <font color="#A2734C">~</font> additional_pre_vpc_sc_signed_url              = (sensitive value)
+  <font color="#A2734C">~</font> post_vpc_sc_signed_url                        = (sensitive value)
+  <font color="#A2734C">~</font> pre_vpc_sc_signed_url                         = (sensitive value)
+  <font color="#A2734C">~</font> test_additional_pre_vpc_sc_signed_url_command = &quot;curl -s -H &apos;x-goog-custom-header: custom_value&apos; &apos;https://storage.googleapis.com/sample-bucket-2a8617ef/sample.txt?GoogleAccessId=signed-url-sa@ballsack-423909.iam.gserviceaccount.com&amp;Expires=1724166151&amp;Signature=tkxNGbRW0tZer9eJYl6EFF34As55dBPYY%2BVLJ23MkOlYXXutWERZmfGTBaMh9Z9Bh5J5tzpmGWq1pmRfc6Gyy8MHMMv3aWsyJRhATGifK9JitdibyIQuUElggxefuO3z8yPKDFLoz7HgeE4COiecz1TdClqYkLr2UJI9rwefLh0HbMUi8P0Epm6vd%2FG0hcpaAzw03tMwFZJdw4hSj3w2vpSTpwnro%2FUSP3nzi%2Fk%2F9O8rRw9kpbeyY6Yuh9plvpxb5DXn0UV8tsGNTh%2BhCBPQ4SPKFTpu5uLyKoB5yy88vQOWqfKIIBXso07ys2BcNrZ7LrlZ%2FlDM1rUkee9sxIKPOg%3D%3D&apos;&quot; <font color="#A2734C">-&gt;</font> &quot;curl -s -H &apos;x-goog-custom-header: custom_value&apos; &apos;https://storage.googleapis.com/sample-bucket-2a8617ef/sample.txt?GoogleAccessId=signed-url-sa@ballsack-423909.iam.gserviceaccount.com&amp;Expires=1724166188&amp;Signature=GhC56GUAmz5BVZkgkKGCJq2mGBew2OfnnOo6K3NrP8N%2BtWOgkgR%2BxlXrXxnQXbmQIOfKUXxsCbXfd%2FLbceQzsFnbRxP81KXnuMO5Py%2Btyt9vJq3B5GQp3Pjd7%2FYFS7NzVbOADDsAjYEKBwkEqXTUGTMCBZ%2BbjNG3%2FAANP86qNd2%2BonRnMdMINDw6y7a4mEBQ4gVVhlQv0ZdQxusfvlvkJB0C0ecjMjdzOpmMl793rmmN1KSI7o5NpUNvJpy8Ormwnrge6iXWuseu%2FR6Y8yOgQVc1h%2FQXocQaIsB1u2ehXmpAfw9L7ybyepQNA1DlphTBa%2F3fh4XKSnnM775alRN6ag%3D%3D&apos;&quot;
+  <font color="#A2734C">~</font> test_post_vpc_sc_signed_url_command           = &quot;VPC-SC not enabled&quot; -&gt; (known after apply)
+  <font color="#A2734C">~</font> test_pre_vpc_sc_signed_url_command            = &quot;curl -s &apos;https://storage.googleapis.com/sample-bucket-2a8617ef/sample.txt?GoogleAccessId=signed-url-sa@ballsack-423909.iam.gserviceaccount.com&amp;Expires=1724166151&amp;Signature=cU57iqAECN1QRAXE38rdD109HH7EJQyyNlsn%2FOthbxZ9zbcKowF8RCZKkBKkxzX7yyPA60%2BPV%2Ffjr9xG03XF9bqnqz5kSEmqwtsFmsZSJVuRsrN87GlaGs0xM1kcm3Ex4SNyPwY48LAtLJR0ibS%2FDSXC4PH2M%2BHKgXk5o7NBakRWxBOFbaAO8nCRjcki%2BNgm%2FUeZc%2B803ytf9HITTX%2BFeB%2FjI5wOpboHVezJnGCK8JbZYFsqIlIVvOC%2BjZ9vS%2F%2BwA%2Bl%2FaiG12YZk0z9BAQZNZhTKM%2FJhqVSKB7U8JYJ3wi6G20FLXcBPZzm56UOKoBKgcJnYBjQlK5NGIyFeQvAK9w%3D%3D&apos;&quot; <font color="#A2734C">-&gt;</font> &quot;curl -s &apos;https://storage.googleapis.com/sample-bucket-2a8617ef/sample.txt?GoogleAccessId=signed-url-sa@ballsack-423909.iam.gserviceaccount.com&amp;Expires=1724166188&amp;Signature=czzkVyvEDDf19ozSJ2OczbdTfNUOl%2BNGXon%2F%2FcJ56NZDmq52o5%2BPArGYx5FJJMS%2FMjQ6fqIj1e7xV8A5GucSRiFmM2pq6OEfM5nyo82WGxC%2Bm%2BuXaVsSqrsBgUof%2FqOtrvjhe%2BTPyJQGOQ59QGNGvBck2i5YAzaKjv1xBvg4CpCsv4zC4yF%2BZ3MN0HFVMHLTUMvsNV4wSPef895PVcq8UN8%2BkpjR0NRDzylrMfjrHnO%2FYnHPl8cMos2HSTmcgwDIgoktYn%2Frbmbp8Ukk7bEBhjObkbad85kAC9OrXPvMCmj45NfYOX9YZI7ZHyFy64yq%2B%2BYHQukZWZ8ep5kcq8I69A%3D%3D&apos;&quot;
+  <font color="#A2734C">~</font> vpc_sc_status                                 = &quot;Disabled&quot; <font color="#A2734C">-&gt;</font> &quot;Enabled&quot;
+<b>google_access_context_manager_access_policy.access_policy[0]: Creating...</b>
+<b>google_access_context_manager_access_policy.access_policy[0]: Creation complete after 3s [id=835746036008]</b>
+<b>google_access_context_manager_service_perimeter.service_perimeter[0]: Creating...</b>
+<b>google_access_context_manager_service_perimeter.service_perimeter[0]: Creation complete after 1s [id=accessPolicies/835746036008/servicePerimeters/restrict_storage]</b>
+<b>data.google_storage_object_signed_url.post_vpc_sc_signed_url: Reading...</b>
+<b>data.google_storage_object_signed_url.post_vpc_sc_signed_url: Read complete after 0s [id=MnfbMOZRBVhCLamnIjeZ0Ep5%2BG93LjbQSq%2FTNkU8FH%2Bj5t5APBwTRShx%2FWXgabytVXTKu8jY5yxa5OKSC9S74j%2BNmHQjfWmi4NgKja0RScIYBgj7BtJmU4WQfbhg61OlHzwc%2FQLRqqitOP6W1IpqBudR6vF%2BpSlZ4BfSC8a%2F1jMge%2BmzYcykylocV%2BDpn94jDysba03uNhwsNnlFeK0iU1VL9wiG54Q2NqAPvePqDZPRhPBbxCggBP%2FY6ggfj%2Bu9a3ETE5CY0uE%2Bw%2BQccTe4YezfcmubjMsxx27GQkCdNQcgZoG%2Be4lkEugIqwBFwehhJl8aYH5Sgrj%2FfMyNAwCuiQ%3D%3D]</b>
+
+<font color="#26A269"><b>Apply complete! Resources: 2 added, 0 changed, 0 destroyed.</b></font>
+
+<font color="#26A269"><b>Outputs:</b></font>
+
+additional_pre_vpc_sc_signed_url = &lt;sensitive&gt;
+bucket_name = &quot;sample-bucket-2a8617ef&quot;
+post_vpc_sc_signed_url = &lt;sensitive&gt;
+pre_vpc_sc_signed_url = &lt;sensitive&gt;
+test_additional_pre_vpc_sc_signed_url_command = &quot;curl -s -H &apos;x-goog-custom-header: custom_value&apos; &apos;https://storage.googleapis.com/sample-bucket-2a8617ef/sample.txt?GoogleAccessId=signed-url-sa@ballsack-423909.iam.gserviceaccount.com&amp;Expires=1724166188&amp;Signature=GhC56GUAmz5BVZkgkKGCJq2mGBew2OfnnOo6K3NrP8N%2BtWOgkgR%2BxlXrXxnQXbmQIOfKUXxsCbXfd%2FLbceQzsFnbRxP81KXnuMO5Py%2Btyt9vJq3B5GQp3Pjd7%2FYFS7NzVbOADDsAjYEKBwkEqXTUGTMCBZ%2BbjNG3%2FAANP86qNd2%2BonRnMdMINDw6y7a4mEBQ4gVVhlQv0ZdQxusfvlvkJB0C0ecjMjdzOpmMl793rmmN1KSI7o5NpUNvJpy8Ormwnrge6iXWuseu%2FR6Y8yOgQVc1h%2FQXocQaIsB1u2ehXmpAfw9L7ybyepQNA1DlphTBa%2F3fh4XKSnnM775alRN6ag%3D%3D&apos;&quot;
+test_direct_access_command = &quot;gsutil cat gs://sample-bucket-2a8617ef/sample.txt&quot;
+test_post_vpc_sc_signed_url_command = &quot;curl -s -H &apos;x-goog-custom-header: custom_value&apos; &apos;https://storage.googleapis.com/sample-bucket-2a8617ef/sample.txt?GoogleAccessId=signed-url-sa@ballsack-423909.iam.gserviceaccount.com&amp;Expires=1724166193&amp;Signature=MnfbMOZRBVhCLamnIjeZ0Ep5%2BG93LjbQSq%2FTNkU8FH%2Bj5t5APBwTRShx%2FWXgabytVXTKu8jY5yxa5OKSC9S74j%2BNmHQjfWmi4NgKja0RScIYBgj7BtJmU4WQfbhg61OlHzwc%2FQLRqqitOP6W1IpqBudR6vF%2BpSlZ4BfSC8a%2F1jMge%2BmzYcykylocV%2BDpn94jDysba03uNhwsNnlFeK0iU1VL9wiG54Q2NqAPvePqDZPRhPBbxCggBP%2FY6ggfj%2Bu9a3ETE5CY0uE%2Bw%2BQccTe4YezfcmubjMsxx27GQkCdNQcgZoG%2Be4lkEugIqwBFwehhJl8aYH5Sgrj%2FfMyNAwCuiQ%3D%3D&apos;&quot;
+test_pre_vpc_sc_signed_url_command = &quot;curl -s &apos;https://storage.googleapis.com/sample-bucket-2a8617ef/sample.txt?GoogleAccessId=signed-url-sa@ballsack-423909.iam.gserviceaccount.com&amp;Expires=1724166188&amp;Signature=czzkVyvEDDf19ozSJ2OczbdTfNUOl%2BNGXon%2F%2FcJ56NZDmq52o5%2BPArGYx5FJJMS%2FMjQ6fqIj1e7xV8A5GucSRiFmM2pq6OEfM5nyo82WGxC%2Bm%2BuXaVsSqrsBgUof%2FqOtrvjhe%2BTPyJQGOQ59QGNGvBck2i5YAzaKjv1xBvg4CpCsv4zC4yF%2BZ3MN0HFVMHLTUMvsNV4wSPef895PVcq8UN8%2BkpjR0NRDzylrMfjrHnO%2FYnHPl8cMos2HSTmcgwDIgoktYn%2Frbmbp8Ukk7bEBhjObkbad85kAC9OrXPvMCmj45NfYOX9YZI7ZHyFy64yq%2B%2BYHQukZWZ8ep5kcq8I69A%3D%3D&apos;&quot;
+vpc_sc_status = &quot;Enabled&quot;
+<font color="#26A269">Waiting for VPC-SC changes to propagate...</font>
+
+<font color="#26A269">Testing access after enabling VPC-SC:</font>
+<font color="#A2734C">Testing pre-VPC-SC signed URL access:</font>
++ curl -s &quot;https://storage.googleapis.com/sample-bucket-2a8617ef/sample.txt?GoogleAccessId=signed-url-sa@ballsack-423909.iam.gserviceaccount.com&amp;Expires=1724166151&amp;Signature=cU57iqAECN1QRAXE38rdD109HH7EJQyyNlsn%2FOthbxZ9zbcKowF8RCZKkBKkxzX7yyPA60%2BPV%2Ffjr9xG03XF9bqnqz5kSEmqwtsFmsZSJVuRsrN87GlaGs0xM1kcm3Ex4SNyPwY48LAtLJR0ibS%2FDSXC4PH2M%2BHKgXk5o7NBakRWxBOFbaAO8nCRjcki%2BNgm%2FUeZc%2B803ytf9HITTX%2BFeB%2FjI5wOpboHVezJnGCK8JbZYFsqIlIVvOC%2BjZ9vS%2F%2BwA%2Bl%2FaiG12YZk0z9BAQZNZhTKM%2FJhqVSKB7U8JYJ3wi6G20FLXcBPZzm56UOKoBKgcJnYBjQlK5NGIyFeQvAK9w%3D%3D&quot;
+&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;&lt;Error&gt;&lt;Code&gt;SecurityPolicyViolated&lt;/Code&gt;&lt;Message&gt;Request violates VPC Service Controls.&lt;/Message&gt;&lt;Details&gt;Request is prohibited by organization&apos;s policy. vpcServiceControlsUniqueIdentifier: w-VNCwnKuukxx2k-mDl4Qa6t5bg3YThvli842aNMudYJDEcA6Azx3Gg9zzm0XLhZOEvd6XGFfOLzSK0&lt;/Details&gt;&lt;/Error&gt;
+<font color="#26A269">Access is as expected</font>
+Press any key to continue...
+<font color="#A2734C">Testing additional pre-VPC-SC signed URL access (with custom header):</font>
++ curl -s -H &apos;x-goog-custom-header: custom_value&apos; &quot;https://storage.googleapis.com/sample-bucket-2a8617ef/sample.txt?GoogleAccessId=signed-url-sa@ballsack-423909.iam.gserviceaccount.com&amp;Expires=1724166151&amp;Signature=tkxNGbRW0tZer9eJYl6EFF34As55dBPYY%2BVLJ23MkOlYXXutWERZmfGTBaMh9Z9Bh5J5tzpmGWq1pmRfc6Gyy8MHMMv3aWsyJRhATGifK9JitdibyIQuUElggxefuO3z8yPKDFLoz7HgeE4COiecz1TdClqYkLr2UJI9rwefLh0HbMUi8P0Epm6vd%2FG0hcpaAzw03tMwFZJdw4hSj3w2vpSTpwnro%2FUSP3nzi%2Fk%2F9O8rRw9kpbeyY6Yuh9plvpxb5DXn0UV8tsGNTh%2BhCBPQ4SPKFTpu5uLyKoB5yy88vQOWqfKIIBXso07ys2BcNrZ7LrlZ%2FlDM1rUkee9sxIKPOg%3D%3D&quot;
+&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;&lt;Error&gt;&lt;Code&gt;SecurityPolicyViolated&lt;/Code&gt;&lt;Message&gt;Request violates VPC Service Controls.&lt;/Message&gt;&lt;Details&gt;Request is prohibited by organization&apos;s policy. vpcServiceControlsUniqueIdentifier: jnBUvYXbSzR1P53jI-1njFuTtd3Unhbqqopm57yv9nbvIAKOHjZVxR3036zoPhgxhRFEDRgdABZ5ka0&lt;/Details&gt;&lt;/Error&gt;
+<font color="#26A269">Access is as expected</font>
+Press any key to continue...
+<font color="#A2734C">Testing post-VPC-SC signed URL access (with custom header):</font>
++ curl -s -H &apos;x-goog-custom-header: custom_value&apos; &quot;https://storage.googleapis.com/sample-bucket-2a8617ef/sample.txt?GoogleAccessId=signed-url-sa@ballsack-423909.iam.gserviceaccount.com&amp;Expires=1724166193&amp;Signature=MnfbMOZRBVhCLamnIjeZ0Ep5%2BG93LjbQSq%2FTNkU8FH%2Bj5t5APBwTRShx%2FWXgabytVXTKu8jY5yxa5OKSC9S74j%2BNmHQjfWmi4NgKja0RScIYBgj7BtJmU4WQfbhg61OlHzwc%2FQLRqqitOP6W1IpqBudR6vF%2BpSlZ4BfSC8a%2F1jMge%2BmzYcykylocV%2BDpn94jDysba03uNhwsNnlFeK0iU1VL9wiG54Q2NqAPvePqDZPRhPBbxCggBP%2FY6ggfj%2Bu9a3ETE5CY0uE%2Bw%2BQccTe4YezfcmubjMsxx27GQkCdNQcgZoG%2Be4lkEugIqwBFwehhJl8aYH5Sgrj%2FfMyNAwCuiQ%3D%3D&quot;
+&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;&lt;Error&gt;&lt;Code&gt;SecurityPolicyViolated&lt;/Code&gt;&lt;Message&gt;Request violates VPC Service Controls.&lt;/Message&gt;&lt;Details&gt;Request is prohibited by organization&apos;s policy. vpcServiceControlsUniqueIdentifier: I1102xrmE8KfXUVo665B0M5nstyGnS7QTflcbPyGSbWywMpaLRdwXOSUc6Wv2WeT_h9XRL8uUKBr5R4&lt;/Details&gt;&lt;/Error&gt;
+<font color="#26A269">Access is as expected</font>
+Press any key to continue...
+<font color="#A2734C">Testing post-VPC-SC signed URL access (without custom header):</font>
++ curl -s &quot;https://storage.googleapis.com/sample-bucket-2a8617ef/sample.txt?GoogleAccessId=signed-url-sa@ballsack-423909.iam.gserviceaccount.com&amp;Expires=1724166193&amp;Signature=MnfbMOZRBVhCLamnIjeZ0Ep5%2BG93LjbQSq%2FTNkU8FH%2Bj5t5APBwTRShx%2FWXgabytVXTKu8jY5yxa5OKSC9S74j%2BNmHQjfWmi4NgKja0RScIYBgj7BtJmU4WQfbhg61OlHzwc%2FQLRqqitOP6W1IpqBudR6vF%2BpSlZ4BfSC8a%2F1jMge%2BmzYcykylocV%2BDpn94jDysba03uNhwsNnlFeK0iU1VL9wiG54Q2NqAPvePqDZPRhPBbxCggBP%2FY6ggfj%2Bu9a3ETE5CY0uE%2Bw%2BQccTe4YezfcmubjMsxx27GQkCdNQcgZoG%2Be4lkEugIqwBFwehhJl8aYH5Sgrj%2FfMyNAwCuiQ%3D%3D&quot;
+&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;&lt;Error&gt;&lt;Code&gt;SignatureDoesNotMatch&lt;/Code&gt;&lt;Message&gt;Access denied.&lt;/Message&gt;&lt;Details&gt;The request signature we calculated does not match the signature you provided. Check your Google secret key and signing method.&lt;/Details&gt;&lt;StringToSign&gt;GET
+
+
+1724166193
+/sample-bucket-2a8617ef/sample.txt&lt;/StringToSign&gt;&lt;/Error&gt;
+<font color="#26A269">Access is as expected</font>
+Press any key to continue...
+<font color="#A2734C">Testing direct gsutil access:</font>
++ gsutil cat gs://sample-bucket-2a8617ef/sample.txt
+AccessDeniedException: 403 Request is prohibited by organization&apos;s policy. vpcServiceControlsUniqueIdentifier: SijQZGVnP8Qms53DE6DNyxmf5vtxHkkXhZ2fFokWQp5cS9uTLyLmEjzqDYX1l0AwDQ6OTr1TL3mMS2E
+<font color="#26A269">Access is as expected</font>
+<font color="#A2734C">End of Test</font>
+</pre>
+</body>
+
+</html>

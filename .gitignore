@@ -1,0 +1,25 @@
+# Terraform variables
+*.tfvars
+
+# Service account key
+terraform-sa-key.json
+
+# Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Terraform directory
+.terraform/
+
+# Crash log files
+crash.log
+
+# Ignore override files as they are usually used to override resources locally
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore terraform lock file
+.terraform.lock.hcl
+
